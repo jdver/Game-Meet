@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../components/footer'
-import Navbar from '../components/navbar'
+import GamesNavbar from '../components/gamesNavbar'
 import Container from '../components/container'
 import API from "../utils/API"
 
@@ -35,7 +35,7 @@ class UserHome extends React.Component {
   render () {
     return (
       <div>
-        <Navbar />
+        <GamesNavbar />
         <Container style={{ marginTop: 50 }}>
           {this.state.games.map(data => (
             <Container key={data._id}>
