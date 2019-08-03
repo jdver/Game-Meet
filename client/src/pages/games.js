@@ -24,7 +24,6 @@ class UserHome extends React.Component {
     API.getGames()
       .then(response => response.json())
       .then(res => {
-        console.log(res)
         this.setState({ games: res })
       }
       )
