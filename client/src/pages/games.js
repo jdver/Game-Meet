@@ -2,7 +2,7 @@ import React from 'react'
 import Footer from '../components/footer'
 import GamesNavbar from '../components/gamesNavbar'
 import Container from '../components/container'
-import API from "../utils/API"
+import API from '../utils/API'
 
 
 class UserHome extends React.Component {
@@ -10,14 +10,14 @@ class UserHome extends React.Component {
     games: [],
     game: '',
     city: '',
-    location:'',
+    location: '',
     players: '',
     date: '',
     synopsis: ''
-  };
+  }
 
   componentDidMount() {
-    this.loadGames();
+    this.loadGames()
   }
 
   loadGames = () => {
@@ -28,8 +28,8 @@ class UserHome extends React.Component {
         this.setState({ games: res })
       }
       )
-      .catch(err => console.log(err));
-  };
+      .catch(err => console.log(err))
+  }
 
 
   render () {
