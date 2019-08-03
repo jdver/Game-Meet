@@ -29,11 +29,11 @@ function ModalCreateAccount () {
           <div className='form-group'>
             <input type='password' className='form-control' id='userRepassword' placeholder='Re-enter your password!' />
           </div>
-          <label htmlFor='userEmail'>Email Address</label>
-          <div className='form-group'>
-            <input type='text' className='form-control' id='userEmail' placeholder='Enter your email!' />
-          </div>            </Modal.Body>
+        </Modal.Body>
         <Modal.Footer>
+          <Button variant='secondary' onClick={handleClose}>
+            Submit
+          </Button>
           <Button variant='secondary' onClick={handleClose}>
             Close
           </Button>

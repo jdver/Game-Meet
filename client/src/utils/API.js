@@ -24,6 +24,21 @@ export default {
   // Gets all games
   getGames: function () {
     return fetch('/api/games')
-  }
+  },
 
+  // save event
+  saveGame: function (gameData) {
+    return fetch('/api/books', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(gameData)
+    })
+  },
+
+  // Gets all users
+  getUsers: function () {
+    return fetch('/api/users')
+  }
 }
