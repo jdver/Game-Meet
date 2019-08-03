@@ -6,27 +6,23 @@ import Container from '../components/container'
 import Col from '../components/col'
 import Row from '../components/row'
 import Carousel from '../components/Carousel'
-// import API from '../utils/API'
+import API from '../utils/API'
 
 class Home extends React.Component {
-  state = {
-    games: [],
+
+  componentDidMount() {
+    this.loadUsers()
   }
 
-  // componentDidMount() {
-  //   this.loadUsers()
-  // }
-
-  // loadUsers = () => {
-  //   API.getUsers()
-  //     .then(response => response.json())
-  //     .then(res => {
-  //       console.log(res)
-  //       this.setState({ games: res })
-  //     }
-  //     )
-  //     .catch(err => console.log(err))
-  // }
+  loadUsers = () => {
+    API.getUsers()
+      .then(response => response.json())
+      .then(res => {
+        console.log(res)
+      }
+      )
+      .catch(err => console.log(err))
+  }
 
   render () {
     return (

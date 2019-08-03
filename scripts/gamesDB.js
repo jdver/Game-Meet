@@ -45,9 +45,29 @@ const gameSeed = [
   }
 ]
 
+/** This is just created some data in your local database for testing  */
+const userSeed = [
+  {
+    Username: 'akjar',
+    Password: 'Scout34!',
+    Date: new Date(Date.now())
+  }
+]
+
 db.Game
   .remove({})
   .then(() => db.Game.collection.insertMany(gameSeed))
+  .then(data => {
+    console.log(data.result.n + ' records inserted!')
+  })
+  .catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
+
+db.User
+  .remove({})
+  .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + ' records inserted!')
     process.exit(0)
