@@ -12,7 +12,7 @@ class UserHome extends React.Component {
     city: '',
     location:'',
     players: '',
-    date: Date,
+    date: '',
     synopsis: ''
   };
 
@@ -25,7 +25,7 @@ class UserHome extends React.Component {
       .then(response => response.json())
       .then(res => {
         console.log(res)
-        this.setState({ games: res, game: '', city: '', location: '', players: '', date: '', synopsis: '' })
+        this.setState({ games: res })
       }
       )
       .catch(err => console.log(err));
@@ -37,7 +37,26 @@ class UserHome extends React.Component {
       <div>
         <Navbar />
         <Container style={{ marginTop: 50 }}>
-          {this.state.games.length} 
+          {this.state.games.map(data => (
+            <Container key={data._id}>
+              {console.log(data)}
+                <strong>
+                  <h3>Game: {data.Game}</h3>
+                  City: {data.City}
+                  <br />
+                  Location: {data.Location}
+                  <br />
+                  Players: 0/{data.Players}
+                  <br />
+                  Date: {data.Date}
+                  <br />
+                  Synopsis: {data.Synopsis}
+                  <br />
+                  <br />
+                  <br />
+                </strong>
+          </Container>
+        ))}
         </Container>
         <Footer />
       </div>
