@@ -5,8 +5,8 @@ const gameSchema = new Schema({
   Game: { type: String, required: true },
   City: { type: String, required: true },
   Location: { type: String, required: true },
-  Players: { type: Number, required: true },
-  Date: { type: Date, default: Date.now },
+  Players: { type: String, required: true },
+  Date: { type: String, required: true },
   Synopsis: String
 })
 

@@ -8,12 +8,6 @@ import API from '../utils/API'
 class UserHome extends React.Component {
   state = {
     games: [],
-    game: '',
-    city: '',
-    location: '',
-    players: '',
-    date: '',
-    synopsis: ''
   }
 
   componentDidMount() {
