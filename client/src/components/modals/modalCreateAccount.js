@@ -6,7 +6,8 @@ class ModalCreateAccount extends React.Component {
   state = {
     modalIsOpen: false,
     username: '',
-    password: ''
+    password: '',
+    repassword: ''
   }
 
   toggleModal = () => {
@@ -20,8 +21,7 @@ class ModalCreateAccount extends React.Component {
     });
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
+  handleFormSubmit = () => {
     if (this.state.username && this.state.password) {
       API.saveUser({
         username: this.state.username,
@@ -31,6 +31,14 @@ class ModalCreateAccount extends React.Component {
         .catch(err => console.log(err));
     }
   };
+
+  correctPW = () => {
+    if (this.state.password !== this.state.repassword) {
+      alert('Please make sure you password matches')
+    } else {
+      this.handleFormSubmit()
+    }
+  }
 
 
   render () {
@@ -53,11 +61,11 @@ class ModalCreateAccount extends React.Component {
           </div>
           <label htmlFor='userRepassword'>Re-Enter Password</label>
           <div className='form-group'>
-            <input type='password' className='form-control' id='userRepassword' placeholder='Re-enter your password!' />
+            <input type='password' className='form-control' id='userRepassword' placeholder='Re-enter your password!' value={this.state.repassword} onChange={this.handleInputChange} name="repassword" />
           </div>
         </ModalBody>
         <ModalFooter>
-          <Button variant='secondary' onClick={this.handleFormSubmit}>
+          <Button variant='secondary' onClick={this.correctPW}>
             Submit
           </Button>
           <Button variant='secondary' onClick={this.toggleModal.bind(this)}>

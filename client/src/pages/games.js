@@ -8,6 +8,7 @@ import API from '../utils/API'
 class UserHome extends React.Component {
   state = {
     games: [],
+    players: 0
   }
 
   componentDidMount() {
@@ -24,6 +25,10 @@ class UserHome extends React.Component {
       .catch(err => console.log(err))
   }
 
+  addPlayer = () => {
+    this.setState({ players: this.state.players + 1 });
+  }
+
 
   render () {
     return (
@@ -33,13 +38,13 @@ class UserHome extends React.Component {
           {this.state.games.map(data => (
             <Container key={data._id}>
               {console.log(data)}
-                <strong>
+                <strong onClick={this.addPlayer}>
                   <h3>Game: {data.Game}</h3>
                   City: {data.City}
                   <br />
                   Location: {data.Location}
                   <br />
-                  Players: 0/{data.Players}
+                  Players: {this.state.players}/{data.Players}
                   <br />
                   Date: {data.Date}
                   <br />
