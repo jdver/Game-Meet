@@ -1,96 +1,90 @@
 import React from 'react'
-import { Button, Modal } from 'react-bootstrap'
+import API from '../../utils/API.js'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
-function ModalCreateEvent () {
-  // const state = {
-  //   game: '',
-  //   city: '',
-  //   location: '',
-  //   players: '',
-  //   date: '',
-  //   synopsis: ''
-  // }
+class ModalCreateEvent extends React.Component {
+  state = {
+    modalIsOpen: false,
+    Game: '',
+    City: '',
+    Location: '',
+    Players: '',
+    Date: '',
+    Synopsis: ''
+  }
 
-  const [show, setShow] = React.useState(false)
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  toggleModal = () => {
+    this.setState({ modalIsOpen: ! this.state.modalIsOpen })
+  }
 
-  // const handleFormSubmit = event => {
-  //   event.preventDefault()
-  //   if (this.state.title && this.state.author) {
-  //     API.saveBook({
-  //       title: this.state.title,
-  //       author: this.state.author,
-  //       synopsis: this.state.synopsis
-  //     })
-  //       .then(response => response.json())
-  //       .then(res => this.loadBooks())
-  //       .catch(err => console.log(err));
-  //   }
-  // }
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
-  return (
-    <>
-      <Button variant='primary' className='btn btn-dark nav-item text-white' onClick={handleShow}>
+  handleFormSubmit = event => {
+    event.preventDefault();
+    API.saveGame({
+      Game: this.state.Game,
+      City: this.state.City,
+      Location: this.state.Location,
+      Players: this.state.Players,
+      Date: this.state.Date,
+      Synopsis: this.state.Synopsis,
+    })
+      .then(response => response.json())
+      .catch(err => console.log(err));
+  };
+
+  render () {
+    return (
+      <>
+      <Button variant='primary' className='btn btn-dark nav-item text-white' onClick={this.toggleModal.bind(this)}>
         Create Event
       </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Create Event</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+  
+      <Modal isOpen={this.state.modalIsOpen}>
+        <ModalHeader toggle={this.toggleModal.bind(this)}>Create Account</ModalHeader>
+        <ModalBody>
+          <label htmlFor='enterGame'>Choose a Game</label>
           <div className='form-group'>
-            <label htmlFor='enterGame'>Choose a Game</label>
-            <select className='form-control' id='enterGame'>
-              <option>Catan</option>
-              <option>Monopoly</option>
-              <option>Munchkin</option>
-              <option>Risk</option>
-            </select>
+            <input type='text' className='form-control' id='enterGame' placeholder='Enter the game being played' value={this.state.Game} onChange={this.handleInputChange} name="Game" />
           </div>
+          <label htmlFor='enterCity'>Game City</label>
           <div className='form-group'>
-            <label htmlFor='enterCity'>Choose a City</label>
-            <select className='form-control' id='enterCity'>
-              <option>Berkeley</option>
-              <option>Oakland</option>
-              <option>San Francisco</option>
-              <option>San Jose</option>
-            </select>
+            <input type='text' className='form-control' id='enterCity' placeholder='Enter the city the game is being played' value={this.state.City} onChange={this.handleInputChange} name="City" />
           </div>
           <label htmlFor='enterLocation'>Game Location</label>
           <div className='form-group'>
-            <input type='text' className='form-control' id='enterLocation' placeholder='Enter the address of the game location' />
+            <input type='text' className='form-control' id='enterLocation' placeholder='Enter the address of the game location' value={this.state.Location} onChange={this.handleInputChange} name="Location" />
           </div>
+          <label htmlFor='enterPlayers'>Amount of Players</label>
           <div className='form-group'>
-            <label htmlFor='enterPlayers'>Amount of People</label>
-            <select className='form-control' id='enterPlayers'>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-            </select>
+            <input type='text' className='form-control' id='enterPlayers' placeholder='Enter the amount of players (3-6)' value={this.state.Players} onChange={this.handleInputChange} name="Players" />
           </div>
-          <label htmlFor='enterLocation'>Game Date</label>
+          <label htmlFor='enterDate'>Game Date</label>
           <div className='form-group'>
-            <input type='text' className='form-control' id='enterDate' placeholder='Enter the date (MM/DD/YYYY) the game is taking place' />
+            <input type='text' className='form-control' id='enterDate' placeholder='Enter the date (MM/DD/YYYY) the game is taking place' value={this.state.Date} onChange={this.handleInputChange} name="Date" />
           </div>
-          <label htmlFor='enterLocation'>Game Synopsis</label>
+          <label htmlFor='enterSynopsis'>Game Synopsis</label>
           <div className='form-group'>
-            <input type='text' className='form-control' id='enterSynopsis' placeholder='Enter details about the event' />
+            <input type='text' className='form-control' id='enterSynopsis' placeholder='Enter details about the event' value={this.state.Synopsis} onChange={this.handleInputChange} name="Synopsis" />
           </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
+        </ModalBody>
+        <ModalFooter>
+          <Button variant='secondary' onClick={this.handleFormSubmit}>
             Submit
           </Button>
-          <Button variant='secondary' onClick={handleClose}>
+          <Button variant='secondary' onClick={this.toggleModal.bind(this)}>
             Close
           </Button>
-        </Modal.Footer>
+        </ModalFooter>
       </Modal>
-    </>
-  )
+      </>
+    )
+  }
 }
 
 export default ModalCreateEvent
