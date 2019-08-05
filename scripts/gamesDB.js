@@ -48,9 +48,9 @@ const gameSeed = [
 /** This is just created some data in your local database for testing  */
 const userSeed = [
   {
-    Username: 'akjar',
-    Password: 'Scout34!',
-    Date: new Date(Date.now())
+    username: 'akjar',
+    password: 'Scout34!',
+    date: new Date(Date.now())
   }
 ]
 

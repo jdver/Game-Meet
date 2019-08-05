@@ -1,5 +1,4 @@
 const express = require('express')
-
 const mongoose = require('mongoose')
 const routes = require('./routes')
 const app = express()
@@ -18,7 +17,6 @@ app.use(routes)
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/gamesDB')
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/usersDB')
 
 // Start the API server
 app.listen(PORT, function () {

@@ -5,13 +5,26 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 class ModalCreateAccount extends React.Component {
   state = {
     modalIsOpen: false,
+    users: [],
     username: '',
     password: '',
     repassword: ''
   }
 
+  loadUsers = () => {
+    API.getUsers()
+      .then(response => response.json())
+      .then(res => {
+        this.setState({ users: res })
+        console.log(this.state.users)
+      }
+      )
+      .catch(err => console.log(err))
+  }
+
   toggleModal = () => {
     this.setState({ modalIsOpen: ! this.state.modalIsOpen })
+    this.loadUsers()
   }
 
   handleInputChange = event => {

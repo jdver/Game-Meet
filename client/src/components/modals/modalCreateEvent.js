@@ -5,6 +5,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 class ModalCreateEvent extends React.Component {
   state = {
     modalIsOpen: false,
+    games: [],
     Game: '',
     City: '',
     Location: '',
@@ -13,8 +14,20 @@ class ModalCreateEvent extends React.Component {
     Synopsis: ''
   }
 
+  loadGames = () => {
+    API.getGames()
+      .then(response => response.json())
+      .then(res => {
+        this.setState({ games: res })
+        console.log(this.state.games)
+      }
+      )
+      .catch(err => console.log(err))
+  }
+
   toggleModal = () => {
     this.setState({ modalIsOpen: ! this.state.modalIsOpen })
+    this.loadGames()
   }
 
   handleInputChange = event => {
@@ -46,7 +59,7 @@ class ModalCreateEvent extends React.Component {
       </Button>
   
       <Modal isOpen={this.state.modalIsOpen}>
-        <ModalHeader toggle={this.toggleModal.bind(this)}>Create Account</ModalHeader>
+        <ModalHeader toggle={this.toggleModal.bind(this)}>Create Event</ModalHeader>
         <ModalBody>
           <label htmlFor='enterGame'>Choose a Game</label>
           <div className='form-group'>
