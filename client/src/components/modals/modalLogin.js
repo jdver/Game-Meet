@@ -2,7 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import API from '../../utils/API.js'
-
+import swal from 'sweetalert'
 
 class ModalLogin extends React.Component {
   state = {
@@ -30,9 +30,15 @@ class ModalLogin extends React.Component {
         this.setState({ users: res })
         this.state.users.forEach((data) => {
           if (this.state.username === data.username && this.state.password === data.password) {
-            alert('Your Are logged in')
+            swal({
+              text: 'Your Are logged in', 
+              icon: 'error'
+            })
           } else {
-            alert('Please make sure your username and password are correct')
+            swal({
+              text: 'Please make sure your username and password are correct', 
+              icon: 'error'
+            })
           }  
         })
       })
