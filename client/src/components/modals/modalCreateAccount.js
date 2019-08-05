@@ -1,6 +1,7 @@
 import React from 'react'
 import API from '../../utils/API.js'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import swal from 'sweetalert'
 
 class ModalCreateAccount extends React.Component {
   state = {
@@ -47,7 +48,10 @@ class ModalCreateAccount extends React.Component {
 
   correctPW = () => {
     if (this.state.password !== this.state.repassword) {
-      alert('Please make sure you password matches')
+      swal({
+        text: 'Please make sure your password matches', 
+        icon: 'error'
+      })
     } else {
       this.handleFormSubmit()
     }
