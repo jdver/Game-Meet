@@ -3,6 +3,7 @@ import Footer from '../components/footer'
 import GamesNavbar from '../components/gamesNavbar'
 import Container from '../components/container'
 import API from '../utils/API'
+import './games.css'
 
 
 class UserHome extends React.Component {
@@ -39,6 +40,7 @@ class UserHome extends React.Component {
             <Container key={data._id}>
               {console.log(data)}
                 <strong onClick={this.addPlayer}>
+                <div className='games-play'>
                   <h3>Game: {data.Game}</h3>
                   City: {data.City}
                   <br />
@@ -52,6 +54,7 @@ class UserHome extends React.Component {
                   <br />
                   <br />
                   <br />
+                </div>
                 </strong>
           </Container>
         ))}

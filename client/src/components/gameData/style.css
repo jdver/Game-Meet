@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Grenze&display=swap');
+.description-txt {
+    font-family: 'Grenze';
+    color: #4F007C;
+    text-shadow: -1px 0 #B955CE, 0 1px #B955CE, 1px 0 #B955CE, 0 -1px #B955CE;
+    text-align: center;
+}

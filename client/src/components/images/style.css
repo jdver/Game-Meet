@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Grenze&display=swap');
 #main {
     padding: 40px;
     background: #f0ea3f;
@@ -6,4 +7,33 @@
   .slick-slide img {
     margin: auto;
   }
+
+.risk-img {
+  height: 250px;
+  width: 250px;
+  border: 5px solid #4F007C;
+}
+.catan-img {
+  height: 250px;
+  width: 250px;
+  border: 5px solid #4F007C;
+}
+.monopoly-img {
+  height: 250px;
+  width: 250px;
+  border: 5px solid #4F007C;
+}
+.munchkin-img {
+  height: 250px;
+  width: 250px;
+  border: 5px solid #4F007C;
+}
+.clickMe {
+  text-align: center;
+  color: #4F007C;
+  font-family: 'Grenze';
+  font-size: 22px;
+  text-shadow: -1px 0 #B955CE, 0 1px #B955CE, 1px 0 #B955CE, 0 -1px #B955CE;
+  
+}
   

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Grenze&display=swap');
+.jumbo-welcome {
+    text-align: center;
+    color: #4F007C;
+    font-family: 'Grenze';
+    text-shadow: -2px 0 #f0ea3f, 0 2px #f0ea3f, 2px 0 #f0ea3f, 0 -2px #f0ea3f;
+    
+    
+    
+    
+}
+.jumbo-txt {
+    text-align: center;
+    color: #4F007C;
+    font-family: 'Grenze';
+    font-size: 25px;
+    text-shadow: -2px 0 #f0ea3f, 0 2px #f0ea3f, 2px 0 #f0ea3f, 0 -2px #f0ea3f;
+}
+.jumbotron {
+    background: #B955CE;
+    border: 5px solid #4F007C;
+}

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Grenze&display=swap');
+.games-play {
+    text-align: center;
+    background-color: #B955CE;
+    font-family: 'Grenze';
+    margin-top: 20px;
+    border-radius: 4px;
+    border: 5px solid #f0ea3f;
+    color: #4F007C;
+    text-shadow: -2px 0 #f0ea3f, 0 2px #f0ea3f, 2px 0 #f0ea3f, 0 -2px #f0ea3f;
+    font-size: 26px;
+
+
+}

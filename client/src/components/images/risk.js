@@ -33,8 +33,9 @@ class Risk extends React.Component {
   render () {
     return (
           <div>
-            <img src='https://upload.wikimedia.org/wikipedia/en/3/36/Risk_logo.jpg' alt='Risk'
-            style={{ margin: 'auto', padding: '1em', borderRadius: '200px' }} onClick={this.riskShowing}
+            <div className='clickMe'>Click Image Below to Learn More</div>
+            <img src='https://upload.wikimedia.org/wikipedia/en/3/36/Risk_logo.jpg' alt='Risk' className='risk-img'
+            style={{ margin: 'auto', borderRadius: '200px' }} onClick={this.riskShowing} 
             />
             <GameData show={!this.state.riskData} username={this.state.username} description={this.state.description} />
           </div>
