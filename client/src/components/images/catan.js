@@ -33,8 +33,9 @@ class Catan extends React.Component {
   render () {
     return (
           <div>
+            <div className='clickMe'>Click Image Below to Learn More</div>
             <img src='https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/Catan-2015-boxart.jpg/250px-Catan-2015-boxart.jpg' alt='catan'
-              style={{ margin: 'auto', padding: '1em', borderRadius: '200px' }} onClick={this.catanShowing}
+              className='catan-img' style={{ margin: 'auto', borderRadius: '200px' }} onClick={this.catanShowing}
             />
             <GameData show={!this.state.catanData} username={this.state.username} description={this.state.description} />
           </div>

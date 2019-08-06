@@ -33,8 +33,9 @@ class Monopoly extends React.Component {
   render () {
     return (
           <div>
+            <div className='clickMe'>Click Image Below to Learn More</div>
             <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDnNvJiRs2vPjPEwkkz1IqqwHOHivkq-av8UKRkDHQbhvjtmC_RA' alt='Monopoly'
-              style={{ margin: 'auto', padding: '1em', borderRadius: '200px' }} onClick={this.monopolyShowing}
+              className='monopoly-img' style={{ margin: 'auto', borderRadius: '200px' }} onClick={this.monopolyShowing}
             />
             <GameData show={!this.state.monopolyData} username={this.state.username} description={this.state.description} />
           </div>
